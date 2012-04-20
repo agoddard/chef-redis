@@ -17,6 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe "build-essential"
 
 
 user node['redis']['user'] do
@@ -24,10 +25,6 @@ user node['redis']['user'] do
 end
 
 group node['redis']['group']
-
-
-
-include_recipe "build-essential"
 
 redis_source_tarball = "redis-#{node['redis']['source']['version']}.tar.gz"
 redis_source_url = "#{node['redis']['source']['url']}/#{redis_source_tarball}"
